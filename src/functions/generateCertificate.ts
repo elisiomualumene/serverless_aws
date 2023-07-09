@@ -1,20 +1,12 @@
 import chromium from "chrome-aws-lambda"
-import Handlebars from "handlebars"
 import path from "path"
 import fs from "fs"
 import dayjs from "dayjs"
-
-import {document} from "../utils/dynamoDBClient"
 import { S3 } from "aws-sdk"
 
+import {document} from "../utils/dynamoDBClient"
+import { compile } from "src/utils/compile"
 
-const compile = async function(data: ITemplateProps){
-    const filePath =  path.join(process.cwd(), "src/templates/template.hbs");
-
-    const html = fs.readFileSync(filePath, "utf-8");
-
-    return Handlebars.compile(html)(data);
-}
 
 export const handle = async (event) => {
     const {grade,id,name} = JSON.parse(event.body) as ICreateCertificate;
