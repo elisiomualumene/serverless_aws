@@ -1,0 +1,23 @@
+service: certificates
+frameworkVersion: '3'
+
+custom:
+  esbuild:
+    bundle: true
+    minify: false
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  hello:
+    handler: src/functions/hello.handle
+    events:
+      - http:
+          method: get
+          path: hello
+
+plugins:
+  - serverless-esbuild
+  - serverless-offline
