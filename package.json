@@ -4,11 +4,17 @@
   "description": "Serverless function running on AWS Lambda",
   "main": "serverless.ts",
   "scripts": {
-    "dev": "serverless offline"
+    "dev": "serverless offline",
+    "dynamo:start": "serverless dynamodb start"
   },
   "dependencies": {
     "@middy/core": "^3.4.0",
-    "@middy/http-json-body-parser": "^3.4.0"
+    "@middy/http-json-body-parser": "^3.4.0",
+    "aws-sdk": "^2.1413.0",
+    "chrome-aws-lambda": "^10.1.0",
+    "dayjs": "^1.11.9",
+    "handlebars": "^4.7.7",
+    "puppeteer-core": "^20.8.0"
   },
   "devDependencies": {
     "@serverless/typescript": "^3.0.0",
